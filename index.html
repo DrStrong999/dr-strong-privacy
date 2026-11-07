@@ -35,7 +35,7 @@
 
 <div class="brand">DR STRONG</div>
 <h1>Privacy Policy</h1>
-<p class="meta">Last updated: 21 September 2026 · Version 1.2</p>
+<p class="meta">Last updated: 7 November 2026 · Version 1.3</p>
 <p>
   Your privacy matters to us. This policy explains what data the "Dr Strong"
   app collects, how it's used, who it's shared with, and how you can control
@@ -91,6 +91,11 @@
     <td>All account and app data</td>
   </tr>
   <tr>
+    <td>Cloudflare</td>
+    <td>Running our own server (api.dr-strong.com), where your app data is also stored</td>
+    <td>Your app data — profile, entries and profile photo — linked to your account ID. Not your email address or password.</td>
+  </tr>
+  <tr>
     <td>Google (Gemini, via Firebase AI Logic)</td>
     <td>Analysing food photos to estimate calories</td>
     <td>The captured photo only, at time of use</td>
@@ -144,6 +149,7 @@
 <ul>
   <li>Sign-in and passwords are managed via Firebase Authentication; passwords are never stored as plain text.</li>
   <li>Your personal data is tied to your account only and cannot be accessed by other users.</li>
+  <li>The app talks to our server only over an encrypted connection (HTTPS), and the server reads or changes your data only for a request that carries your sign-in and Firebase App Check's confirmation that it comes from our app.</li>
   <li>Data you choose to share (like a steps challenge) is only visible to participants who explicitly joined.</li>
 </ul>
 
@@ -166,7 +172,7 @@
 <ul>
   <li><strong>Access:</strong> You can review your data at any time within the app.</li>
   <li><strong>Correction:</strong> You can edit your profile and data directly from the Settings page.</li>
-  <li><strong>Deletion:</strong> You can permanently delete your account and your personal data from inside the app — <strong>Profile → Delete account</strong>. Deletion is permanent and cannot be undone.</li>
+  <li><strong>Deletion:</strong> You can permanently delete your account and your personal data from inside the app — <strong>Profile → Delete account</strong>. It is removed from our server and from Firebase. Deletion is permanent and cannot be undone.</li>
   <li><strong>Data in groups you joined:</strong> The rows you published into a step group or a challenge (your name and step figures) are held in that group, not in your account, and deleting the account does not remove them. <strong>Leave the group first</strong> if you want them gone, or email us and we will remove them for you.</li>
   <li><strong>A copy of your data:</strong> You can export everything stored in your account from inside the app — <strong>Settings → Privacy → Export my data</strong>. You receive a single JSON file, a standard format that other apps and services can read. It does not include the rows you published into groups (above); email us for those.</li>
 </ul>
