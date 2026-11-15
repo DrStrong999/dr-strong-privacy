@@ -35,7 +35,7 @@
 
 <div class="brand">DR STRONG</div>
 <h1>Privacy Policy</h1>
-<p class="meta">Last updated: 12 November 2026 · Version 1.8</p>
+<p class="meta">Last updated: 15 November 2026 · Version 1.9</p>
 <p>
   Your privacy matters to us. This policy explains what data the "Dr Strong"
   app collects, how it's used, who it's shared with, and how you can control
@@ -50,8 +50,8 @@
   <tr><td>Account data</td><td>Email address and password (encrypted), or the Apple or Google account you choose to sign in with.</td></tr>
   <tr><td>Profile data</td><td>Name, date of birth, sex, country, height, weight, profile photo</td></tr>
   <tr><td>Health &amp; fitness data</td><td>Steps, fluids, fasting, calories, carbohydrates/protein/fat, weight, body measurements, nutrient readings you enter from your lab results</td></tr>
-  <tr><td>Apple Health data</td><td>Your step count and walking distance, read from Apple Health with your permission. <strong>Read only — we never write to Apple Health.</strong></td></tr>
-  <tr><td>Motion data</td><td>The live step counter while you walk, from the device's motion sensor</td></tr>
+  <tr><td>Apple Health data</td><td>Your step count, walking and running distance, and exercise time, read from Apple Health with your permission. <strong>Read only — we never write to Apple Health.</strong></td></tr>
+  <tr><td>Motion data</td><td>The live step count and distance while you walk, and today's walking and running time, from the device's motion sensor</td></tr>
   <tr><td>Food photos</td><td>Photos you take for AI-based calorie estimation</td></tr>
   <tr><td>Barcode data</td><td>Barcode numbers you scan from packaged products</td></tr>
 </table>
@@ -88,18 +88,18 @@
   <tr><th>Service</th><th>Purpose</th><th>What's shared</th></tr>
   <tr>
     <td>Firebase (Google)</td>
-    <td>Account and data storage, sign-in</td>
-    <td>All account and app data</td>
+    <td>Sign-in, and confirming that requests to our server come from our app (App Check)</td>
+    <td>Your email address and password (never stored as plain text), or the Apple or Google account you sign in with, with the name and email address it shares (and, from Google, your profile picture link); and, for App Check, Apple's confirmation that the request comes from our app on a real device — nothing about you. No app data (see below).</td>
   </tr>
   <tr>
     <td>Cloudflare</td>
-    <td>Running our own server (api.dr-strong.com), where your app data, steps challenges, step groups and reports are also stored</td>
+    <td>Running our own server (api.dr-strong.com), where your app data, steps challenges, step groups and reports are stored</td>
     <td>Your app data — profile, entries and profile photo — what you publish into a steps challenge (your name and your step total), what you publish into a step group (your name and step figures, and your requests to join), and the reports you send (the account ID and name of the person you report, the group or challenge where you saw them, and whether you also blocked them), linked to your account ID. Not your email address or password.</td>
   </tr>
   <tr>
     <td>GitHub (Actions)</td>
     <td>Running the daily job, on GitHub's servers, that works out the anonymous comparison</td>
-    <td>Once a day: the list of accounts from Firebase sign-in, email addresses included, of which only the account ID and the sign-in method are used; and each account's steps, fluids, calories and fasting entries and goals, and its profile, of which only the country is used. Nothing from an account is kept on GitHub after the job: its log holds counts, and a description of the error if something fails, and never an account ID.</td>
+    <td>Once a day: the list of accounts from Firebase sign-in, email addresses included, of which only the account ID and the sign-in method are used; and each account's steps, fluids, calories and fasting entries and goals, and its profile, from our server, of which only the country is used. Nothing from an account is kept on GitHub after the job: its log holds counts, and a description of the error if something fails, and never an account ID.</td>
   </tr>
   <tr>
     <td>Google (Gemini, via Firebase AI Logic)</td>
@@ -113,12 +113,7 @@
   </tr>
   <tr>
     <td>GitHub Pages</td>
-    <td>Downloading recipes and food lists</td>
-    <td>A file request — nothing about you</td>
-  </tr>
-  <tr>
-    <td>jsDelivr</td>
-    <td>Loading the barcode-reading engine the first time you scan</td>
+    <td>Downloading recipes, food lists and nutrient explanations</td>
     <td>A file request — nothing about you</td>
   </tr>
   <tr>
@@ -132,6 +127,14 @@
   Food photos and barcode lookups are not permanently stored or linked to your
   identity by these third-party services — they are used only in the moment, to
   return a result inside the app.
+</p>
+
+<p>
+  <strong>Where your app data is kept:</strong> on our server (Cloudflare)
+  alone. Until 15 November 2026 it was also stored in Firebase (Google Cloud
+  Firestore); that copy was deleted on 15 November 2026. Earlier versions of
+  the app also kept a copy on your phone: versions released after
+  15 November 2026 delete it when they start, and deleting the app removes it.
 </p>
 
 <h2>5. What Other Users Can See</h2>
@@ -188,8 +191,8 @@
 </p>
 <table>
   <tr><th>Permission</th><th>Why</th></tr>
-  <tr><td>Apple Health</td><td>Reading your step count and distance. Read only.</td></tr>
-  <tr><td>Motion &amp; Fitness</td><td>The live step counter while you walk.</td></tr>
+  <tr><td>Apple Health</td><td>Reading your step count, distance and exercise time. Read only.</td></tr>
+  <tr><td>Motion &amp; Fitness</td><td>The live step counter while you walk, and today's walking and running time.</td></tr>
   <tr><td>Camera</td><td>Scanning barcodes and taking food photos. No image is saved from a barcode scan.</td></tr>
   <tr><td>Photos</td><td>Choosing a profile picture. We do not read your library; you pick one image.</td></tr>
   <tr><td>Notifications</td><td>Water, step and measurement reminders. Entirely optional.</td></tr>
@@ -199,7 +202,7 @@
 <ul>
   <li><strong>Access:</strong> You can review your data at any time within the app.</li>
   <li><strong>Correction:</strong> You can edit your profile and data directly from the Settings page.</li>
-  <li><strong>Deletion:</strong> You can permanently delete your account and your personal data from inside the app — <strong>Profile → Delete account</strong>. It is removed from our server and from Firebase. Deletion is permanent and cannot be undone.</li>
+  <li><strong>Deletion:</strong> You can permanently delete your account and your personal data from inside the app — <strong>Profile → Delete account</strong>. Your data is removed from our server, and your sign-in account from Firebase. If you signed in with Apple, the app also asks Apple to revoke its access to your Apple ID. Deletion is permanent and cannot be undone.</li>
   <li><strong>Data in groups you joined:</strong> The rows you published into a step group or a challenge (your name and step figures), and a request to join a group, are held in that group, not in your account, and deleting the account does not remove them. <strong>Leave the group, or withdraw the request, first</strong> if you want them gone, or email us and we will remove them for you.</li>
   <li><strong>Reports:</strong> A report keeps the account ID of whoever sent it and of whoever it is about, and it stays after either account is deleted, so that deleting an account cannot erase the reports about it. Email us about a report you sent.</li>
   <li><strong>A copy of your data:</strong> You can export everything stored in your account from inside the app — <strong>Settings → Privacy → Export my data</strong>. You receive a single JSON file, a standard format that other apps and services can read. It does not include the rows you published into groups (above); email us for those.</li>
