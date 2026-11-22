@@ -26,6 +26,7 @@
   code { background: #eef3f7; padding: 1px 5px; border-radius: 4px; font-size: 14px; }
   .note { background: #fff8e6; border: 1px solid #f0dca8; border-radius: 10px; padding: 12px 14px; margin: 14px 0; }
   .foot { color: var(--soft); font-size: 13px; margin-top: 40px; padding-top: 16px; border-top: 1px solid var(--line); }
+  @media (max-width: 360px) { body { padding-left: 14px; padding-right: 14px; } th, td { padding: 8px 6px; } }
 </style>
 </head>
 <body>
@@ -35,7 +36,7 @@
 
 <div class="brand">DR STRONG</div>
 <h1>Privacy Policy</h1>
-<p class="meta">Last updated: 15 November 2026 · Version 1.9</p>
+<p class="meta">Last updated: 22 November 2026 · Version 2.0</p>
 <p>
   Your privacy matters to us. This policy explains what data the "Dr Strong"
   app collects, how it's used, who it's shared with, and how you can control
@@ -49,17 +50,24 @@
   <tr><th>Data type</th><th>Examples</th></tr>
   <tr><td>Account data</td><td>Email address and password (encrypted), or the Apple or Google account you choose to sign in with.</td></tr>
   <tr><td>Profile data</td><td>Name, date of birth, sex, country, height, weight, profile photo</td></tr>
-  <tr><td>Health &amp; fitness data</td><td>Steps, fluids, fasting, calories, carbohydrates/protein/fat, weight, body measurements, nutrient readings you enter from your lab results</td></tr>
+  <tr><td>Health &amp; fitness data</td><td>Steps, fluids, fasting, calories, carbohydrates, protein and fat, weight, body measurements, nutrient readings you enter from your lab results</td></tr>
   <tr><td>Apple Health data</td><td>Your step count, walking and running distance, and exercise time, read from Apple Health with your permission. <strong>Read only — we never write to Apple Health.</strong></td></tr>
   <tr><td>Motion data</td><td>The live step count and distance while you walk, and today's walking and running time, from the device's motion sensor</td></tr>
   <tr><td>Food photos</td><td>Photos you take for AI-based calorie estimation</td></tr>
   <tr><td>Barcode data</td><td>Barcode numbers you scan from packaged products</td></tr>
+  <tr><td>Walker ID</td><td>A nine-digit number the app gives every account, shown as "Walker" and the number. It never changes, and it is never given to anyone else, even after your account is deleted.</td></tr>
+  <tr><td>Friends data</td><td>If you use Friends: who you follow and who follows you, and the follow requests; the groups you sort people into, and their names; your card — your name and a small copy of your profile photo; and what you choose to let each group see of your data, with the summary your phone works out for it</td></tr>
+  <tr><td>Stories</td><td>The photos and videos you post, who each is for, and who has seen it</td></tr>
+  <tr><td>Chats</td><td>The messages, photos and voice messages you send, locked on your phone so that we cannot read them; your phone's public key; and who you write to, when, each message's type and size, and when it was seen</td></tr>
+  <tr><td>Notification address</td><td>Your phone's address for Apple's notifications, and the app's language on it, if you allow notifications of new messages</td></tr>
+  <tr><td>Reports</td><td>The reports you send, and a copy of a message you report, or of a story once three people have reported it</td></tr>
 </table>
 
 <div class="note">
   <strong>Some of this is sensitive health data</strong> — lab readings, weight
   and body measurements in particular. We do not sell it, do not use it for
-  advertising, and do not share it with insurers or commercial parties.
+  advertising, and do not share it with insurers or commercial parties. Other
+  users see it only where you choose to share it with them (section 5).
 </div>
 
 <h2>2. What We Do Not Collect</h2>
@@ -67,6 +75,7 @@
   <li><strong>Your location.</strong> The app does not request or use location, and the iOS location permission is not declared at all.</li>
   <li><strong>No advertising.</strong> There are no ads and no ad networks in the app.</li>
   <li><strong>No tracking or behavioural analytics</strong>, and no advertising identifiers.</li>
+  <li><strong>What your chat messages say.</strong> They are locked on your phone before they leave it, and we cannot read them — unless you report one (section 5).</li>
 </ul>
 
 <h2>3. How We Use Your Data</h2>
@@ -76,6 +85,9 @@
   <li>To estimate calories and macronutrients from food photos or barcodes.</li>
   <li>To enable social features (steps challenge, step groups) when you choose to participate.</li>
   <li>To compare you anonymously with other users: once a day, everyone's steps, fluids, calories and fasting are ranked together, and you see your own rank and the averages.</li>
+  <li>To run Friends when you use it: following, your groups and what each sees, stories and chats.</li>
+  <li>To tell you of a new message, through Apple's notification service.</li>
+  <li>To act on reports: hiding and checking a reported story, reading a reported message, and stopping an account from posting stories or sending messages.</li>
 </ul>
 
 <h2>4. Who We Share Your Data With</h2>
@@ -93,13 +105,23 @@
   </tr>
   <tr>
     <td>Cloudflare</td>
-    <td>Running our own server (api.dr-strong.com), where your app data, steps challenges, step groups and reports are stored</td>
-    <td>Your app data — profile, entries and profile photo — what you publish into a steps challenge (your name and your step total), what you publish into a step group (your name and step figures, and your requests to join), and the reports you send (the account ID and name of the person you report, the group or challenge where you saw them, and whether you also blocked them), linked to your account ID. Not your email address or password.</td>
+    <td>Running our own server (api.<wbr>dr-strong.com), where your app data, steps challenges, step groups, Friends and reports are stored, with photos, videos and voice messages in its storage (R2)</td>
+    <td>Your app data — profile, entries and profile photo — what you publish into a steps challenge (your name and your step total), what you publish into a step group (your name and step figures, and your requests to join), your Walker ID, your Friends data, stories and chats as section 1 lists them — messages locked, so that Cloudflare cannot read them either — and the reports you send (the account ID and name of the person you report, where you saw them, whether you also blocked them, and the copy of a message or story that section 1 lists), linked to your account ID. Not your email address or password.</td>
   </tr>
   <tr>
     <td>GitHub (Actions)</td>
     <td>Running the daily job, on GitHub's servers, that works out the anonymous comparison</td>
     <td>Once a day: the list of accounts from Firebase sign-in, email addresses included, of which only the account ID and the sign-in method are used; and each account's steps, fluids, calories and fasting entries and goals, and its profile, from our server, of which only the country is used. Nothing from an account is kept on GitHub after the job: its log holds counts, and a description of the error if something fails, and never an account ID.</td>
+  </tr>
+  <tr>
+    <td>Cloudflare (Workers AI)</td>
+    <td>Checking the photo of a story that three people have reported</td>
+    <td>That photo only — nothing about you. The model, Llama 3.2 Vision, is made by Meta and run on Cloudflare's servers; nothing is sent to Meta.</td>
+  </tr>
+  <tr>
+    <td>Apple (Push Notification service)</td>
+    <td>Telling you of a new chat message</td>
+    <td>Your phone's notification address, and the notification: "New message from" the sender's name — or their Walker ID — and the sender's Walker ID, so the app can open the chat. Never what the message says.</td>
   </tr>
   <tr>
     <td>Google (Gemini, via Firebase AI Logic)</td>
@@ -137,30 +159,55 @@
   15 November 2026 delete it when they start, and deleting the app removes it.
 </p>
 
+<p>
+  <strong>How long Friends keeps things:</strong> a story is gone 24 hours after
+  it goes up, with the list of who saw it; a chat message is gone 48 hours
+  after it is sent, with its photo or voice. A copy of a reported story or
+  message is kept 7 days. The report itself stays (section 8).
+</p>
+
 <h2>5. What Other Users Can See</h2>
 <p>
   <strong>Nothing by default</strong>, beyond the anonymous comparison below.
-  Nothing else is shared unless you join a step group or a challenge
-  yourself. When you do, <strong>only the members of that
-  group</strong> can see your name and your step figures: today, yesterday,
-  this week, this month, and your streak, with the day they are for and when
-  you joined. If you ask to join a group, its founder sees your name with the
-  request. In a steps challenge, <strong>only its participants</strong> can see
-  your name and your step total for the challenge's days.
+  Nothing else is shared unless you join a step group or a challenge, or use
+  Friends, yourself. When you join a group, <strong>only the members of that
+  group</strong> can see your name, your Walker ID and your step figures:
+  today, yesterday, this week, this month, and your streak, with the day they
+  are for and when you joined. If you ask to join a group, its founder sees
+  your name and Walker ID with the request. In a steps challenge, <strong>only
+  its participants</strong> can see your name, your Walker ID and your step
+  total for the challenge's days.
 </p>
 <p>
   A group's name, and the account ID of whoever founded it, can be read by
   anyone who has its invite code, so they can see what they are joining.
 </p>
 <p>
-  <strong>Your profile photo is not shared.</strong> Members see a single
-  letter from your name in its place.
+  <strong>Your profile photo is not shared in groups and challenges.</strong>
+  Members see a single letter from your name in its place.
 </p>
+
+<p><strong>In Friends:</strong></p>
+<ul>
+  <li><strong>Your Walker ID</strong> lets anyone ask to follow you, and you decide. Until you accept, they see your Walker ID alone. One account can send thirty requests a day at most.</li>
+  <li><strong>Your card</strong> — your name and a small copy of your profile photo — is seen by the people you follow or ask to follow, and by the followers you accepted. Who follows you, and who you follow, are seen by you alone, and so are your groups: nobody is told which group they are in.</li>
+  <li><strong>Your data is seen by nobody until you choose.</strong> For each group, you choose for each of steps, water, fasting, calories, weight, body measurements, vitamin results and points whether it sees nothing, a summary, or the details. A summary is a few figures: for calories, your streak alone; for weight, the change since your first weigh-in, never the weight itself. The details are your entries themselves — every day's steps, water, fasting hours, calories and macronutrients with your meals by name, your weight, every body measurement, and every lab result with its range — with your goals for those and the day you began using the app: their app receives the whole history of each, and shows it by the period they pick. Only the followers you accepted, in that group, see it, and blocking someone hides it from them.</li>
+  <li><strong>Stories</strong> are seen by the followers you accepted, in the groups you choose, for 24 hours. You see who has seen yours, and others see that you have seen theirs.</li>
+  <li><strong>Chats</strong> are only between two people who follow each other. "Seen" tells the sender you have opened the chat. A message is gone 48 hours after it is sent, but the other person can take a screenshot, and nothing tells you if they do. Deleting a message of yours deletes it for both of you.</li>
+</ul>
 <p>
   <strong>Reports are read by us alone.</strong> When you report or block
   someone, nobody else sees the report — not the person reported, and not the
-  rest of the group or challenge. If someone reports you, the report holds your
+  rest of the group, challenge or chat. If someone reports you, the report holds your
   account ID and your name as it appeared there, and you are not told.
+</p>
+<p>
+  <strong>A story</strong> that three people report is hidden from everyone,
+  and checked: a photo by the model in section 4 — or by us, if the model gives no answer — and a video by us. If it does not
+  break the rules it comes back; if it does, it is deleted. <strong>A
+  message</strong> you report is sent to us by your phone as you saw it — its
+  text, photo or voice — so that we can read it. We may stop an account from
+  posting stories or sending messages.
 </p>
 <p>
   <strong>The comparison is anonymous.</strong> Once a day your steps, fluids,
@@ -169,18 +216,21 @@
   figures, your rank or your name.
 </p>
 <p>
-  Your weight, calories, body measurements and lab readings are never shown to
-  other users — not to the group, not to anyone; your calories count only in the
-  comparison's anonymous averages. You can leave a group at any time, and
-  your data disappears from it.
+  Your weight, calories, body measurements and lab readings are never shown in
+  a step group or a challenge; in Friends, only to the groups you choose
+  (above). Your calories count in the comparison's anonymous averages alone. You
+  can leave a group at any time, and your data disappears from it.
 </p>
 
 <h2>6. Data Security</h2>
 <ul>
   <li>Sign-in and passwords are managed via Firebase Authentication; passwords are never stored as plain text.</li>
-  <li>Your personal data is tied to your account only and cannot be accessed by other users.</li>
+  <li>Your personal data is tied to your account only and cannot be accessed by other users, except what you choose to share with them (section 5).</li>
   <li>The app talks to our server only over an encrypted connection (HTTPS), and the server reads or changes your data only for a request that carries your sign-in and Firebase App Check's confirmation that it comes from our app.</li>
   <li>Data you choose to share (like a steps challenge or a step group) is only visible to participants who explicitly joined.</li>
+  <li><strong>Chat messages are end-to-end encrypted.</strong> Your phone locks each one with a key only your phone and the other person's can make (ECDH on P-256, HKDF-SHA256, AES-256-GCM). Your private key stays in your phone's Keychain, on that phone alone — never in a backup or iCloud. Our server keeps messages locked and cannot read them; what it does see is who writes to whom and when, each message's type and size, and when it was seen.</li>
+  <li>What that does not do: the other person's key comes from our server, and the app has no way yet to compare it with them; and someone who took your phone's key could open the messages to and from it still on our server — 48 hours' worth at most.</li>
+  <li><strong>Stories are not end-to-end encrypted</strong>, so that they can be shown to the people you choose, and checked when reported.</li>
 </ul>
 
 <h2>7. Device Permissions</h2>
@@ -193,19 +243,26 @@
   <tr><th>Permission</th><th>Why</th></tr>
   <tr><td>Apple Health</td><td>Reading your step count, distance and exercise time. Read only.</td></tr>
   <tr><td>Motion &amp; Fitness</td><td>The live step counter while you walk, and today's walking and running time.</td></tr>
-  <tr><td>Camera</td><td>Scanning barcodes and taking food photos. No image is saved from a barcode scan.</td></tr>
-  <tr><td>Photos</td><td>Choosing a profile picture. We do not read your library; you pick one image.</td></tr>
-  <tr><td>Notifications</td><td>Water, step and measurement reminders. Entirely optional.</td></tr>
+  <tr><td>Camera</td><td>Scanning barcodes, taking food photos, and taking your profile picture, the photos and videos you post to your stories, and the photos you send in chats. No image is saved from a barcode scan.</td></tr>
+  <tr><td>Photos</td><td>Choosing a profile picture, the photos and videos you post to your stories, and the photos you send in chats. We do not read your library; you pick each one.</td></tr>
+  <tr><td>Microphone</td><td>Recording the sound of the videos you post to your stories, and the voice messages you send in chats.</td></tr>
+  <tr><td>Notifications</td><td>Reminders — water, steps, calories, measurements, vitamins and the weekly report — and notifications of new chat messages. Entirely optional.</td></tr>
 </table>
+<p>
+  If you have turned on Sensitive Content Warning or Communication Safety in
+  iOS Settings (iOS 17 and later), the app asks iOS, on your phone, whether
+  another person's story photo or video may be sensitive, and blurs it if so.
+  The answer never leaves your phone. Chat photos are never checked.
+</p>
 
 <h2>8. Your Rights</h2>
 <ul>
   <li><strong>Access:</strong> You can review your data at any time within the app.</li>
   <li><strong>Correction:</strong> You can edit your profile and data directly from the Settings page.</li>
-  <li><strong>Deletion:</strong> You can permanently delete your account and your personal data from inside the app — <strong>Profile → Delete account</strong>. Your data is removed from our server, and your sign-in account from Firebase. If you signed in with Apple, the app also asks Apple to revoke its access to your Apple ID. Deletion is permanent and cannot be undone.</li>
+  <li><strong>Deletion:</strong> You can permanently delete your account and your personal data from inside the app — <strong>Profile → Delete account</strong>. Your data is removed from our server, and your sign-in account from Firebase. So is everything of yours in Friends: your follows either way, your groups and card, what your groups saw, your stories with who saw them, every chat message you sent or received — so it disappears from the other person's chat too — your public key and your phones' notification addresses; and the chat key on the phone you delete it from is deleted from its Keychain. If you signed in with Apple, the app also asks Apple to revoke its access to your Apple ID. Deletion is permanent and cannot be undone.</li>
   <li><strong>Data in groups you joined:</strong> The rows you published into a step group or a challenge (your name and step figures), and a request to join a group, are held in that group, not in your account, and deleting the account does not remove them. <strong>Leave the group, or withdraw the request, first</strong> if you want them gone, or email us and we will remove them for you.</li>
-  <li><strong>Reports:</strong> A report keeps the account ID of whoever sent it and of whoever it is about, and it stays after either account is deleted, so that deleting an account cannot erase the reports about it. Email us about a report you sent.</li>
-  <li><strong>A copy of your data:</strong> You can export everything stored in your account from inside the app — <strong>Settings → Privacy → Export my data</strong>. You receive a single JSON file, a standard format that other apps and services can read. It does not include the rows you published into groups (above); email us for those.</li>
+  <li><strong>Reports:</strong> A report keeps the account ID of whoever sent it and of whoever it is about, and it stays after either account is deleted, so that deleting an account cannot erase the reports about it — and so does a copy of a reported story or message, until its 7 days end, and a stop on posting stories or sending messages. Email us about a report you sent.</li>
+  <li><strong>A copy of your data:</strong> You can export everything stored in your account from inside the app — <strong>Settings → Privacy → Export my data</strong>. You receive a single JSON file, a standard format that other apps and services can read. It does not include the rows you published into groups (above), or Friends — your Walker ID, follows, groups, stories and messages; email us for those — except messages, which we cannot read.</li>
 </ul>
 
 <h2>9. Children's Privacy</h2>
